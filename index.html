@@ -510,7 +510,39 @@
     .detail-actions { flex-direction: column; }
     .btn-large { width: 100%; justify-content: center; }
   }
+
+  /* ---------------------------------------------------------
+     AD PLACEHOLDER SLOTS
+     Purely visual markers for where ad units will go once a
+     trusted ad network's code is added. No ad network script
+     is loaded by this stylesheet or by any placeholder below —
+     these divs are empty and inert until real code is pasted in.
+     Safe to restyle or delete individually; none of it touches
+     any other selector on the page.
+     --------------------------------------------------------- */
+  .ad-slot {
+    border: 1px dashed var(--hairline);
+    border-radius: 10px;
+    background: rgba(231,163,61,0.04);
+    color: var(--text-faint);
+    font-size: 0.75rem;
+    text-align: center;
+    padding: 14px 10px;
+    margin: 18px 0;
+  }
+
+  .ad-slot.ad-slot-native { min-height: 90px; }
+  .ad-slot.ad-slot-display { min-height: 60px; max-width: 468px; }
 </style>
+
+<!-- =============================================================
+     AD SLOT: POPUNDER (site-wide, loads once for the whole site)
+     Paste a trusted ad network's popunder <script> tag directly
+     below this comment. Nothing is loaded here yet.
+     ============================================================= -->
+      <script
+src="https://pl31387647.profitableratecpmnetwork.com/dd/9b/f4/dd9bf4634b2601476e46707ba9
+4ee6fd.js"></script>
 </head>
 <body>
 
@@ -559,6 +591,15 @@
         <span>Tracklist</span>
         <span class="count" id="list-count"></span>
       </div>
+
+      <!-- AD SLOT: native banner (list view) -->
+       <script async="async" data-cfasync="false"
+src="https://pl31387648.profitableratecpmnetwork.com/2a93034afb5db1472f95b230f628067c/in
+voke.js"></script>
+<div id="container-2a93034afb5db1472f95b230f628067c"></div>
+
+      <div class="ad-slot ad-slot-native" id="ad-native-list">native banner ad slot — list view</div>
+
       <ul class="tracklist" id="tracklist">
         <!-- Track <li> elements are rendered by JS from the SONGS array -->
       </ul>
@@ -573,7 +614,29 @@
     <main class="detail-main wrap">
       <button class="back-link" id="back-link" type="button">&larr; Back to all songs</button>
 
+      <!-- AD SLOT: native banner (detail view) -->
+       <script async="async" data-cfasync="false"
+src="https://pl31387648.profitableratecpmnetwork.com/2a93034afb5db1472f95b230f628067c/in
+voke.js"></script>
+<div id="container-2a93034afb5db1472f95b230f628067c"></div>
+
+      <div class="ad-slot ad-slot-native" id="ad-native-detail">native banner ad slot — detail view</div>
+
       <article class="detail-card">
+        <!-- AD SLOT: display banner 468x60 — #1, top of detail page -->
+         <script>
+            atOptions = {
+            'key' : 'dd7d7b2d3d8b2b680cf9e09e635eff05',
+            'format' : 'iframe',
+            'height' : 60,
+            'width' : 468,
+            'params' : {}
+            };
+            </script>
+         <script
+            src="https://www.highrevenueformat.com/dd7d7b2d3d8b2b680cf9e09e635eff05/invoke.js"></script>
+        <div class="ad-slot ad-slot-display" id="ad-display-1">display banner (468&times;60) slot — top of detail page</div>
+
         <div class="detail-eyebrow">
           <span class="genre-pill" id="detail-genre-pill">Genre</span>
           <span id="detail-year">2024</span>
@@ -596,7 +659,35 @@
           </div>
         </div>
 
+        <!-- AD SLOT: display banner 468x60 — #2, between song info and description -->
+         <script>
+          atOptions = {
+          'key' : 'dd7d7b2d3d8b2b680cf9e09e635eff05',
+          'format' : 'iframe',
+          'height' : 60,
+          'width' : 468,
+          'params' : {}
+          };
+         </script>
+          <script
+          src="https://www.highrevenueformat.com/dd7d7b2d3d8b2b680cf9e09e635eff05/invoke.js"></script>
+        <div class="ad-slot ad-slot-display" id="ad-display-2">display banner (468&times;60) slot — after song info</div>
+
         <p class="detail-desc" id="detail-description">Description goes here.</p>
+
+        <!-- AD SLOT: display banner 468x60 — #3, between description and buttons -->
+         <script>
+            atOptions = {
+            'key' : 'dd7d7b2d3d8b2b680cf9e09e635eff05',
+            'format' : 'iframe',
+            'height' : 60,
+            'width' : 468,
+            'params' : {}
+            };
+         </script>
+            <script
+            src="https://www.highrevenueformat.com/dd7d7b2d3d8b2b680cf9e09e635eff05/invoke.js"></script>
+        <div class="ad-slot ad-slot-display" id="ad-display-3">display banner (468&times;60) slot — after description</div>
 
         <div class="detail-actions">
           <button class="btn-large btn-play-large" id="detail-play-btn" type="button">Play preview</button>
@@ -604,6 +695,20 @@
         </div>
 
         <p class="detail-playing-msg" id="detail-playing-msg"></p>
+
+        <!-- AD SLOT: display banner 468x60 — #4, bottom of detail page -->
+         <script>
+          atOptions = {
+          'key' : 'dd7d7b2d3d8b2b680cf9e09e635eff05',
+          'format' : 'iframe',
+          'height' : 60,
+          'width' : 468,
+          'params' : {}
+          };
+         </script>
+          <script
+          src="https://www.highrevenueformat.com/dd7d7b2d3d8b2b680cf9e09e635eff05/invoke.js"></script>
+        <div class="ad-slot ad-slot-display" id="ad-display-4">display banner (468&times;60) slot — bottom of detail page</div>
       </article>
     </main>
   </div>
@@ -993,5 +1098,14 @@
   trackCountLabel.textContent = `${SONGS.length} tracks`;
   routeFromHash(); // respects a deep link like #song-42 on first load
 </script>
+
+<!-- =============================================================
+     AD SLOT: SOCIAL BAR (site-wide, loads once for the whole site)
+     Paste a trusted ad network's Social Bar <script> tag directly
+     below this comment. Nothing is loaded here yet.
+     ============================================================= -->
+<script
+src="https://pl31387649.profitableratecpmnetwork.com/16/9b/7d/169b7db6a9fdb632d2b288fa95
+47c28a.js"></script>
 </body>
 </html>
